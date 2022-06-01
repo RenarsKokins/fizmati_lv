@@ -1,21 +1,41 @@
-<nav class="bg-white flex flex-row justify-between p-4">
-    <div class="w-44">
-        <img src="{{url('/')}}/img/logo.webp" alt="logo">
+<nav class="bg-gradient-to-r from-gradient-orange_1 to-gradient-orange_2 flex flex-row justify-between p-4 shadow-xl">
+    <div class="w-40 flex flex-col justify-center cursor-pointer">
+        <a href="{{url('/')}}">
+            <img src="{{url('/')}}/img/logo_white.webp" alt="logo">
+        </a>
     </div>
-    <div class="input-group items-stretch flex">
-        <input class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-primary-500 focus:outline-none" type="search" placeholder="ass">
-        <button class="btn px-6 py-2.5 bg-primary-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-primary-400 hover:shadow-lg focus:bg-primary-500  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
-            </svg>
-        </button>
-    </div>
-    <div class="flex flex-row">
-        <div class="px-2">
-            <i class="fa-solid fa-bell text-2xl text-gray-600"></i>
+    <div class="flex flex-row px-4 divide-x divide-white/20">
+        <div class="px-2 h-8 flex flex-row items-center justify-center text-white/75 hover:text-white/100 ">
+            <i class="fa-solid fa-house pr-2"></i>
+            <a href="#ass">Sākums</a>
         </div>
-        <div class="px-2">
-            <i class="fa-solid fa-circle-user text-2xl text-gray-600"></i>
+        <div class="px-2 h-8 flex flex-row items-center justify-center text-white/75 hover:text-white/100 ">
+            <i class="fa-solid fa-newspaper pr-2"></i>
+            <a href="#ass">Ziņas</a>
+        </div>
+        <div class="px-2 h-8 flex flex-row items-center justify-center text-white/75 hover:text-white/100 ">
+            <i class="fa-solid fa-graduation-cap pr-2"></i>
+            <a href="#ass">Studentiem</a>
+        </div>
+        <div class="px-2 h-8 flex flex-row items-center justify-center text-white/75 hover:text-white/100 ">
+            <i class="fa-solid fa-building-columns pr-2"></i>
+            <a href="#ass">Padome</a>
+        </div>
+        <div class="px-2 h-8 flex flex-row items-center justify-center text-white/75 hover:text-white/100 ">
+            <i class="fa-solid fa-images pr-2"></i>
+            <a href="#ass">Galerija</a>
+        </div>
+    </div>
+
+    <div class="flex flex-row">
+        <div class="px-4 flex flex-col justify-center text-white/75 hover:text-white/100 cursor-pointer">
+            <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+        </div>
+        <div class="px-4 flex flex-col justify-center text-white/75 hover:text-white/100 cursor-pointer">
+            <i class="fa-solid fa-bell text-2xl"></i>
+        </div>
+        <div class="px-4 flex flex-col justify-center text-white/75 hover:text-white/100 cursor-pointer">
+            <i class="fa-solid fa-circle-user text-2xl"></i>
         </div>
     </div>
 </nav>

@@ -14,6 +14,10 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        gradient: {
+          "orange_1": "#ee5600",
+          "orange_2": "#f28500",
+        },
         primary: {
           100: "#ffeacc",
           200: "#ffd499",
