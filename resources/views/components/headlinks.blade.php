@@ -6,4 +6,5 @@
 
 <!-- Scripts -->
 <script src="{{url('/')}}/js/app.js"></script>
+<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
