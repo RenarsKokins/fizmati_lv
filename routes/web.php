@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\ForgotController;
+use App\Http\Controllers\auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,11 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/auth/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/auth/login', [AuthController::class, 'login'])->name('login.send');
-Route::get('/auth/login/forgot', [AuthController::class, 'showForgot'])->name('forgot');
-Route::post('/auth/login/forgot', [AuthController::class, 'forgot'])->name('forgot.send');
-Route::get('/auth/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/auth/register', [AuthController::class, 'register'])->name('register.send');
+Route::get('/', [HomeController::class, 'showHome'])->name('home');
+Route::get('/auth/login', [LoginController::class, 'showLogin'])->name('login');
+Route::post('/auth/login', [LoginController::class, 'login'])->name('login.send');
+Route::get('/auth/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/auth/login/forgot', [ForgotController::class, 'showForgot'])->name('forgot');
+Route::post('/auth/login/forgot', [ForgotController::class, 'forgot'])->name('forgot.send');
+Route::get('/auth/register', [RegisterController::class, 'showRegister'])->name('register');
+Route::post('/auth/register', [RegisterController::class, 'register'])->name('register.send');

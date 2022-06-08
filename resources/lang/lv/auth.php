@@ -13,6 +13,7 @@ return [
     */
 
     'failed' => 'Nepareiza parole vai lietotājvārds.',
-    'throttle' => 'Pārāk daudz pieslēgšanās mēģinājumu. Mēģiniet vēlreiz pēc :seconds sekundēm.',
+    'already_exists' => 'Lietotājs ar šādu lietotājvārdu jau pastāv!',
+    'throttle' => 'Pārāk daudz pieslēgšanās mēģinājumu. Mēģiniet vēlreiz pēc minūtes.',
 
 ];
