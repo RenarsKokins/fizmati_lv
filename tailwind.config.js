@@ -10,6 +10,9 @@ module.exports = {
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
   ],
   theme: {
+    maxWidth: {
+      '1/6': '16.65%',
+    },
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],

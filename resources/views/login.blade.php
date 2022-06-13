@@ -21,12 +21,12 @@
             <form action="{{route('login.send')}}" method="post">
                 @csrf
                 <div class="relative pb-4">
-                    <input required type="email" id="email" name="email" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
+                    <input required  value="{{ old('email') }}" type="email" id="email" name="email" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
                     <label for="email" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">E-pasts</label>
                 </div>
                 <div class="relative pb-4">
                     <input required type="password" id="password" name="password" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
-                    <label for="password" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Parole (vismaz 6 simboli)</label>
+                    <label for="password" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Parole</label>
                 </div>
                 @if (\Session::has('error'))
                     <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">

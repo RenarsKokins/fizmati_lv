@@ -16,19 +16,19 @@
             <form action="{{route('register.send')}}" method="post">
                 @csrf
                 <div class="relative pb-4">
-                    <input required type="email" id="email" name="email" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
+                    <input required value="{{ old('email') }}" type="email" id="email" name="email" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
                     <label for="email" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">E-pasts</label>
                 </div>
                 <div class="relative pb-4">
-                    <input type="username" id="username" name="username" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
+                    <input type="username" value="{{ old('username') }}" id="username" name="username" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
                     <label for="username" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Lietotājvārds</label>
                 </div>
                 <div class="relative pb-4">
-                    <input required minlength="6" type="password" id="password" name="password" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
+                    <input required title="Parolei jāsastāv vismaz no 8 simboliem, kuros ir vismaz viens cipars, viens lielais un mazais burts." type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
                     <label for="password" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Parole</label>
                 </div>
                 <div class="relative pb-4">
-                    <input requiredminlength="6" type="password" id="password_check" name="password_check" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
+                    <input required type="password" id="password_check" name="password_check" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="block rounded-t-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-500 peer" placeholder=" "/>
                     <label for="password_check" class="after:content-['*'] after:text-red-500 absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Parole atkārtoti</label>
                 </div>
                 <div id="message-box" class="hidden p-4 mb-4 text-sm  bg-red-100 rounded-lg" role="alert">
@@ -54,8 +54,12 @@
         </div>
     </div>
     <script>
-        $('#password, #password_check').on('keyup', function () {
-            if ($('#message-box').hasClass('hidden')) {
+        $('#password, #password_check').on('keyup change', function () {
+            if ($('#password').val().length == 0) {
+                $('#message-box').addClass('hidden');
+                return;
+            }
+            if ($('#message-box').hasClass('hidden') && $('#password').val().length > 0) {
                 $('#message-box').removeClass('hidden');
             }
             if ($('#password').val() == $('#password_check').val()) {

@@ -38,14 +38,14 @@ class RegisterController extends Controller
         $this->validate($request, [
             'email' => 'required|email',
             'username' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'required|regex:/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/',
         ]);
 
         if (User::where('email', '=', $request->input('email'))->exists()) {
-            return redirect()->route('register')->with('email_exists', 'Lietotājs ar šādu e-pastu jau eksistē!');
+            return redirect()->back()->withInput()->with('email_exists', 'Lietotājs ar šādu e-pastu jau eksistē!');
         }
         if (User::where('username', '=', $request->input('username'))->exists()) {
-            return redirect()->route('register')->with('username_exists', 'Lietotājs ar šādu lietotājvārdu jau eksistē!');
+            return redirect()->back()->withInput()->with('username_exists', 'Lietotājs ar šādu lietotājvārdu jau eksistē!');
         }
 
         $user = User::create([
