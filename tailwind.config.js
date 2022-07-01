@@ -16,6 +16,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        lcd: ['LCD Solid'],
       },
       colors: {
         gradient: {
@@ -37,6 +38,10 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('postcss-import'),
+    require('tailwindcss/nesting')(require('postcss-nesting')),
+    require('autoprefixer'),
+    require('tailwindcss'),
+    require('flowbite/plugin'),
   ],
 }

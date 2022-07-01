@@ -43,7 +43,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         } else 
         {
-            return redirect()->back()->withInput()->withErrors('error','E-pasts vai parole ir nepareiza.');
+            return redirect()->back()->withInput()->with('error','E-pasts vai parole ir nepareiza.');
         }
     }
 

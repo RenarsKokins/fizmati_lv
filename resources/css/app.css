@@ -1,3 +1,46 @@
 @tailwind base;
+@layer base {
+    @font-face {
+        font-family: 'LCD Solid';
+        src: url('/fonts/lcdSolid.ttf') format("truetype");
+    }
+
+    .no-tailwindcss-base {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: revert;
+            font-weight: revert;
+        }
+
+        ol,
+        ul {
+            list-style: revert;
+            margin: revert;
+            padding: revert;
+        }
+    }
+}
 @tailwind components;
 @tailwind utilities;
+
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+    -webkit-animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}

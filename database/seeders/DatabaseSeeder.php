@@ -13,30 +13,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Create user statuses
         \App\Models\UserStatus::create([
             'status' => 'suspended',
-            'can_comment' => 0,
-            'can_write' => 0,
-            'can_modify' => 0,
+            'can_interact' => 0,
+            'can_post' => 0,
+            'is_admin' => 0,
         ]);
         \App\Models\UserStatus::create([
             'status' => 'user',
-            'can_comment' => 1,
-            'can_write' => 0,
-            'can_modify' => 0,
+            'can_interact' => 1,
+            'can_post' => 0,
+            'is_admin' => 0,
         ]);
         \App\Models\UserStatus::create([
             'status' => 'writer',
-            'can_comment' => 1,
-            'can_write' => 1,
-            'can_modify' => 0,
+            'can_interact' => 1,
+            'can_post' => 1,
+            'is_admin' => 0,
         ]);
         \App\Models\UserStatus::create([
             'status' => 'moderator',
-            'can_comment' => 1,
-            'can_write' => 1,
-            'can_modify' => 1,
+            'can_interact' => 1,
+            'can_post' => 1,
+            'is_admin' => 1,
         ]);
+
+        // Create test user **REMOVE BEFORE PRODUCTION**
         \App\Models\User::create([
             'username' => 'Renars',
             'email' => 'renars@test.com',

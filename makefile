@@ -1,6 +1,6 @@
 run-local:
 	sudo systemctl start docker
-	vendor/bin/sail up -d
+	vendor/bin/sail up
 down-local:
 	vendor/bin/sail down
 build-local:

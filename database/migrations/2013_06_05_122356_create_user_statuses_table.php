@@ -16,9 +16,9 @@ class CreateUserStatusesTable extends Migration
         Schema::create('user_statuses', function (Blueprint $table) {
             $table->id();
             $table->string('status', 20);
-            $table->boolean('can_comment')->default(1);
-            $table->boolean('can_write')->default(0);
-            $table->boolean('can_modify')->default(0);
+            $table->boolean('can_interact')->default(1);
+            $table->boolean('can_post')->default(0);
+            $table->boolean('is_admin')->default(0);
             $table->timestamps();
         });
     }

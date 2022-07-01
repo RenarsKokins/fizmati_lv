@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticleReactionsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateArticleReactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_reactions', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('article_id')->constrained();
+            $table->string('title', 100);
+            $table->string('main_image', 100)->nullable();
+            $table->string('description', 480)->nullable();
+            $table->text('body');
             $table->foreignId('user_id')->constrained();
-            $table->string('reaction', 10);
+            $table->foreignId('topic_id')->constrained()->nullable();
         });
     }
 
@@ -29,6 +32,6 @@ class CreateArticleReactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_reactions');
+        Schema::dropIfExists('posts');
     }
 }

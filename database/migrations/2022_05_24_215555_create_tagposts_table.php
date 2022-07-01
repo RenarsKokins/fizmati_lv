@@ -17,7 +17,7 @@ class CreateTagpostsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('tag_id')->constrained();
-            $table->foreignId('article_id')->constrained();
+            $table->foreignId('post_id')->constrained();
         });
     }
 

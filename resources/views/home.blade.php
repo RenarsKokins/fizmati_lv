@@ -9,7 +9,7 @@
         <div class="mx-auto bg-white rounded-xl overflow-hidden shadow-lg lg:max-w-4xl">
             <div class="lg:flex">
                 <div class="lg:shrink-0">
-                    <img class="w-full h-full object-cover lg:h-full lg:w-56" src="/img/reklama.jpg"
+                    <img class="w-full h-full object-cover lg:h-full lg:w-56 xl:w-64" src="/img/reklama.jpg"
                     alt="Man looking at item at a store">
                 </div>
                 <div class="p-8 flex flex-col justify-between">
